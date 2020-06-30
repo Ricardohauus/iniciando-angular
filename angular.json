@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "iniciando-angular"
+    }
+  },
+  "defaultProject": "iniciando-angular",
+  "cli": {
+    "analytics": false
+  }
 }
