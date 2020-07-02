@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import employees from '../employees';
+import { EmployeeService, Employee } from '../services/employee.service';
 
 @Component({
   selector: 'employee-new',
@@ -7,18 +7,21 @@ import employees from '../employees';
   styleUrls: ['./employee-new.component.css']
 })
 export class EmployeeNewComponent implements OnInit {
-  employees = employees;
-  name: string = ''
-  salary: number = 0;
+  employee: Employee = {
+    name: '',
+    salary: 0,
+    bonus: 0,
+  }
 
-  constructor() { }
+
+  constructor(private service: EmployeeService) { }
 
   ngOnInit(): void {
   }
 
   public adicionar(): void {
-    this.employees.push({ name: this.name, salary: this.salary })
-    console.log(this.employees);
+    const copy = Object.assign({}, this.employee)
+    this.service.addEmployee(copy)
 
   }
 

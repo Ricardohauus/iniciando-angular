@@ -9,9 +9,14 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let item of employees">
-            <td>{{ item.name }}</td>
-            <td>{{ item.salary }}</td>
+        <tr *ngFor="let employee of employees">
+            <td>{{ employee.name }}</td>
+            <td [ngClass]="{
+          'salary-expensive': employee.salary > 4000,
+          'salary-cheap': employee.salary < 1000
+        }">
+                {{ employee.salary }}
+            </td>
         </tr>
     </tbody>
 </table>
