@@ -8,9 +8,9 @@ import { EmployeeService, Employee } from '../services/employee.service';
 })
 export class EmployeeNewComponent implements OnInit {
   employee: Employee = {
-    name: '',
-    salary: 0,
-    bonus: 0,
+    name: 'TESTE',
+    salary: 900,
+    bonus: 300,
   }
 
 

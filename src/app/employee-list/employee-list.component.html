@@ -1,14 +1,18 @@
-<h1>Nossos empregados</h1>
-<br />
+<br /><br />
+<div class="alert alert-primary text-center" role="alert">
+    Empregados Cadastrados
+</div>
 
-<table>
+<table class="table table-striped">
     <thead>
         <tr>
             <th>Nome</th>
             <th>Salário</th>
+            <th>Bonus</th>
         </tr>
     </thead>
     <tbody>
+        <tr></tr>
         <tr *ngFor="let employee of employees">
             <td>{{ employee.name }}</td>
             <td [ngClass]="{
@@ -17,6 +21,7 @@
         }">
                 {{ employee.salary }}
             </td>
+            <td>{{ employee.bonus }}</td>
         </tr>
     </tbody>
 </table>
