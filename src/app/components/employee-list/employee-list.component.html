@@ -2,7 +2,7 @@
 <div class="alert alert-primary text-center" role="alert">
     Empregados Cadastrados
 </div>
-<p salaryColor></p>
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -15,10 +15,7 @@
         <tr></tr>
         <tr *ngFor="let employee of employees">
             <td>{{ employee.name }}</td>
-            <td [ngClass]="{
-          'salary-expensive': employee.salary > 4000,
-          'salary-cheap': employee.salary < 1000
-        }">
+            <td salaryColor="{{ employee.salary }}">
                 {{ employee.salary }}
             </td>
             <td>{{ employee.bonus }}</td>
