@@ -27,5 +27,8 @@ export class EmployeeListComponent implements OnInit {
   onNewEmployee(employee: Employee) {
     this.employee = employee;
     this.showMessageSuccess = true;
+    setTimeout(() => {
+      this.showMessageSuccess = false;
+    }, 5000);
   }
 }

@@ -1,7 +1,8 @@
-<p [hidden]="!showMessageSuccess">
-    O empregado {{ employee?.name }} foi cadastrado com sucesso!
-</p>
 <br />
+
+<alert-success [hidden]="!showMessageSuccess">
+    O empregado <strong>{{ employee?.name }} </strong> foi cadastrado com sucesso!
+</alert-success>
 <button type="button" class="btn btn-primary" (click)="openNewModal()">
   Adicionar Empregado
 </button>
