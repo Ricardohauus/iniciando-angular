@@ -18,6 +18,7 @@
             <th>Nome</th>
             <th>Salário</th>
             <th>Bonus</th>
+            <th>Ações</th>
         </tr>
     </thead>
     <tbody>
@@ -28,8 +29,16 @@
                 {{ employee.salary }}
             </td>
             <td>{{ employee.bonus }}</td>
-        </tr>
-    </tbody>
+            <td>
+                <a href="javascript:void(0)" (click)="openEditModal(employee)">Editar</a
+        >
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 <employee-new-modal (onSubmit)="onNewEmployee($event)"></employee-new-modal>
+<employee-edit-modal
+  [employee]="employeeToEdit"
+  (onSubmit)="onEditEmployee($event)"
+></employee-edit-modal>

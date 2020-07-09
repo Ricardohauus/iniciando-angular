@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { EmployeeService, Employee } from '../../services/employee.service';
 import { EmployeeNewModalComponent } from '../employee-new-modal/employee-new-modal.component';
+import { EmployeeEditModalComponent } from '../employee-edit-modal/employee-edit-modal.component';
 @Component({
   selector: 'employee-list',
   templateUrl: './employee-list.component.html',
@@ -11,8 +12,12 @@ export class EmployeeListComponent implements OnInit {
 
   showMessageSuccess = false;
   employee: Employee;
+  employeeToEdit: Employee;
   @ViewChild(EmployeeNewModalComponent)
   employeeNewModal: EmployeeNewModalComponent;
+
+  @ViewChild(EmployeeEditModalComponent)
+  employeeEditModal: EmployeeEditModalComponent;
 
   constructor(private service: EmployeeService) {
   }
@@ -21,8 +26,14 @@ export class EmployeeListComponent implements OnInit {
     this.employees = this.service.employees;
   }
   public employees = [];
+
   openNewModal() {
     this.employeeNewModal.show();
+  }
+
+  openEditModal(employee: Employee) {
+    this.employeeToEdit = employee;
+    this.employeeEditModal.show();
   }
   onNewEmployee(employee: Employee) {
     this.employee = employee;
@@ -30,5 +41,9 @@ export class EmployeeListComponent implements OnInit {
     setTimeout(() => {
       this.showMessageSuccess = false;
     }, 5000);
+  }
+  onEditEmployee(employee: Employee) {
+    console.log(employee);
+
   }
 }
