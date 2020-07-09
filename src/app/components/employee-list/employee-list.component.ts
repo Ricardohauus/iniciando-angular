@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { EmployeeService } from '../../services/employee.service';
+import { EmployeeService, Employee } from '../../services/employee.service';
 import { EmployeeNewModalComponent } from '../employee-new-modal/employee-new-modal.component';
 @Component({
   selector: 'employee-list',
@@ -9,14 +9,12 @@ import { EmployeeNewModalComponent } from '../employee-new-modal/employee-new-mo
 })
 export class EmployeeListComponent implements OnInit {
 
+  showMessageSuccess = false;
+  employee: Employee;
   @ViewChild(EmployeeNewModalComponent)
   employeeNewModal: EmployeeNewModalComponent;
 
   constructor(private service: EmployeeService) {
-
-    // setTimeout(() => {
-    //   this.employeeNewModal.show();
-    // }, 2000)
   }
 
   ngOnInit(): void {
@@ -26,7 +24,8 @@ export class EmployeeListComponent implements OnInit {
   openNewModal() {
     this.employeeNewModal.show();
   }
-  public getSalaryColor(salary: number): string {
-    return salary > 20000 ? 'green' : 'black ';
+  onNewEmployee(employee: Employee) {
+    this.employee = employee;
+    this.showMessageSuccess = true;
   }
 }

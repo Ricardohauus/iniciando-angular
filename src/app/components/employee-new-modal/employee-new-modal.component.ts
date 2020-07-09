@@ -1,5 +1,6 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit, ElementRef, Output, EventEmitter } from '@angular/core';
 import { Employee, EmployeeService } from 'src/app/services/employee.service';
+
 declare const $;
 
 @Component({
@@ -35,9 +36,13 @@ export class EmployeeNewModalComponent implements OnInit {
   }
 
   public adicionar(): void {
-    const copy = Object.assign({}, this.employee)
-    this.service.addEmployee(copy)
+    const copy = Object.assign({}, this.employee);
+    this.service.addEmployee(copy);
+    this.onSubmit.emit(copy);
     this.hide();
   }
+
+  @Output()
+  onSubmit: EventEmitter<Employee> = new EventEmitter<Employee>();
 
 }

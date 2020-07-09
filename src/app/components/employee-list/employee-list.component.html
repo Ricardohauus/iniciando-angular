@@ -1,3 +1,6 @@
+<p [hidden]="!showMessageSuccess">
+    O empregado {{ employee?.name }} foi cadastrado com sucesso!
+</p>
 <br />
 <button type="button" class="btn btn-primary" (click)="openNewModal()">
   Adicionar Empregado
@@ -28,4 +31,4 @@
     </tbody>
 </table>
 
-<employee-new-modal></employee-new-modal>
+<employee-new-modal (onSubmit)="onNewEmployee($event)"></employee-new-modal>
