@@ -24,11 +24,11 @@
     <tbody>
         <tr></tr>
         <tr *ngFor="let employee of employees">
-            <td>{{ employee.name }}</td>
+            <td>{{ employee.name | uppercase }}</td>
             <td salaryColor="{{ employee.salary }}">
-                {{ employee.salary }}
+                {{ employee.salary | myCurrency }}
             </td>
-            <td>{{ employee.bonus }}</td>
+            <td>{{ employee.bonus | myCurrency }}</td>
             <td>
                 <a href="javascript:void(0)" (click)="openEditModal(employee)">Editar</a
         >
