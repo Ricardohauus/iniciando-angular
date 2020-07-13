@@ -32,6 +32,10 @@
             <td>
                 <a href="javascript:void(0)" (click)="openEditModal(employee)">Editar</a
         >
+        |
+        <a href="javascript:void(0)" (click)="openDestroyModal(employee)"
+          >Excluir</a
+        >
       </td>
     </tr>
   </tbody>
@@ -42,3 +46,7 @@
   [employee]="employeeToEdit"
   (onSubmit)="onEditEmployee($event)"
 ></employee-edit-modal>
+<employee-delete-modal
+  [employee]="employeeToDelete"
+  (onDestroy)="onDestroyEmployee($event)"
+></employee-delete-modal>
