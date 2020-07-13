@@ -5,15 +5,16 @@ import { Directive, ElementRef, Input } from '@angular/core';
 })
 export class SalaryColorDirective {
 
-  @Input()
-  public salaryColor;
 
   constructor(private element: ElementRef) {
-    setTimeout(() => {
-      let nativeElement = this.element.nativeElement;
-      nativeElement.style.color = parseFloat(this.salaryColor) > 2000 ? 'green' : 'red';
-    }, 2000)
 
+  }
+
+  @Input()
+  set salaryColor(value) {
+    const nativeElement = this.element.nativeElement;
+    const salary = parseFloat(value);
+    nativeElement.style.color = salary > 20000 ? 'green' : 'red';
   }
 
 }
