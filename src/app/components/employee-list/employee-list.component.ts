@@ -12,9 +12,24 @@ import { EmployeeDeleteModalComponent } from '../employee-delete-modal/employee-
 export class EmployeeListComponent implements OnInit {
 
   showMessageSuccess = false;
-  employee: Employee;
-  employeeToEdit: Employee;
-  employeeToDelete: Employee;
+
+  employee: Employee = {
+    name: '',
+    salary: 0,
+    bonus: 0,
+  };
+
+  employeeToEdit: Employee = {
+    name: '',
+    salary: 0,
+    bonus: 0,
+  };
+
+  employeeToDelete: Employee = {
+    name: '',
+    salary: 0,
+    bonus: 0,
+  };
 
   @ViewChild(EmployeeNewModalComponent)
   employeeNewModal: EmployeeNewModalComponent;
@@ -38,6 +53,7 @@ export class EmployeeListComponent implements OnInit {
   }
 
   openEditModal(employee: Employee) {
+    console.log(employee);
     this.employeeToEdit = employee;
     this.employeeEditModal.show();
   }

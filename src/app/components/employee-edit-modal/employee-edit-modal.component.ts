@@ -1,7 +1,6 @@
-import { Component, OnInit, EventEmitter, ElementRef, Output, Input } from '@angular/core';
+import { Component, OnInit, EventEmitter, ElementRef, Output, Input, ViewChild } from '@angular/core';
 import { Employee, EmployeeService } from 'src/app/services/employee.service';
-
-declare const $;
+import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'employee-edit-modal',
@@ -13,26 +12,22 @@ export class EmployeeEditModalComponent implements OnInit {
   @Input()
   employee: Employee;
 
-  constructor(private element: ElementRef) { }
+  @ViewChild(ModalComponent)
+  modalComponent: ModalComponent;
+
+  constructor() { }
 
   ngOnInit(): void {
   }
-
   public show() {
-    const divModal = this.getDivModal();
-    $(divModal).modal('show');
+    console.log(this.modalComponent);
+    this.modalComponent.show();
   }
   public hide() {
-    const divModal = this.getDivModal();
-    $(divModal).modal('hide');
+    this.modalComponent.hide();
   }
 
-  private getDivModal(): HTMLElement {
-    const nativeElement: HTMLElement = this.element.nativeElement;
-    return nativeElement.firstChild.firstChild as HTMLElement;
-  }
-
-  public adicionar(): void {
+  public editar(): void {
     const copy = Object.assign({}, this.employee);
     //this.service.addEmployee(copy);
     this.onSubmit.emit(copy);
