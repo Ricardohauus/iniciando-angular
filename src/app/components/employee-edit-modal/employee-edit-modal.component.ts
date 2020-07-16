@@ -19,8 +19,8 @@ export class EmployeeEditModalComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
   public show() {
-    console.log(this.modalComponent);
     this.modalComponent.show();
   }
   public hide() {

@@ -53,7 +53,6 @@ export class EmployeeListComponent implements OnInit {
   }
 
   openEditModal(employee: Employee) {
-    console.log(employee);
     this.employeeToEdit = employee;
     this.employeeEditModal.show();
   }
@@ -74,5 +73,16 @@ export class EmployeeListComponent implements OnInit {
 
   onDestroyEmployee(employee: Employee) {
     console.log(employee);
+  }
+  public programadores = [
+    {nome: '', especialidade: 'CSS',}
+  ];
+
+  list() {
+    for (let p of this.programadores) {
+      if (p.especialidade === 'CSS') {
+        console.log(`O programador ${p.nome} trabalha com css`);
+      }
+    }
   }
 }
